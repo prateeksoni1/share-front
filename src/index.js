@@ -7,6 +7,8 @@ import { Provider } from "react-redux";
 import { store, persistor } from "./persistStrore";
 import { PersistGate } from "redux-persist/integration/react";
 
+// Axios.defaults.baseURL = "https://share-back.herokuapp.com/";
+
 ReactDOM.render(
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
