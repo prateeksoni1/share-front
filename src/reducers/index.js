@@ -1,4 +1,11 @@
 import { combineReducers } from "redux";
 import { reducer as formReducer } from "redux-form";
 
-export default combineReducers({ a: () => "d", form: formReducer });
+const loginReducer = (user = null, action) => {
+  if (action.type === "USER") {
+    return action.payload;
+  }
+  return user;
+};
+
+export default combineReducers({ user: loginReducer, form: formReducer });
