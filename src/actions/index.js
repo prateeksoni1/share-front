@@ -4,3 +4,9 @@ export const loginAction = user => {
     payload: user
   };
 };
+
+export const logoutAction = () => {
+  return {
+    type: "LOGOUT"
+  };
+};

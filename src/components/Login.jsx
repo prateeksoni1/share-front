@@ -55,7 +55,7 @@ class Login extends Component {
     this.setState({ loading: true });
     axios.post("/api/auth/login", formValues).then(res => {
       console.log(res);
-      this.setState({ loading: false });
+      this.setState({ loading: false, redirect: true });
       this.props.loginAction(res.data.user);
     });
   };

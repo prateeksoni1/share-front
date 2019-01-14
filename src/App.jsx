@@ -4,6 +4,8 @@ import Navbar from "./components/Navbar";
 import Jumbotron from "./components/Jumbotron";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
+import Dashboard from "./components/Dashboard";
+import { connect } from "react-redux";
 
 class App extends Component {
   render() {
@@ -12,6 +14,7 @@ class App extends Component {
         <BrowserRouter>
           <div>
             <Navbar />
+
             <Route exact path="/" component={Jumbotron} />
             <Route path="/signup" render={() => <Signup />} />
             <Route path="/login" render={() => <Login />} />
@@ -22,4 +25,10 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    user: state.user
+  };
+};
+
+export default connect(mapStateToProps)(App);
