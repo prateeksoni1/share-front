@@ -18,6 +18,7 @@ class App extends Component {
             <Route exact path="/" component={Jumbotron} />
             <Route path="/signup" render={() => <Signup />} />
             <Route path="/login" render={() => <Login />} />
+            <Route path="/dashboard" render={() => <Dashboard />} />
           </div>
         </BrowserRouter>
       </main>

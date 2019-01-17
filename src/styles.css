@@ -1,3 +1,11 @@
 .red-btn {
   background-color: #e74c3c;
 }
+
+.create-card {
+  cursor: pointer;
+}
+
+.create-card:hover {
+  background-color: rgb(240, 240, 240);
+}
