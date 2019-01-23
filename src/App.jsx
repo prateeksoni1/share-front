@@ -6,6 +6,7 @@ import Signup from "./components/Signup";
 import Login from "./components/Login";
 import Dashboard from "./components/Dashboard";
 import { connect } from "react-redux";
+import CreatePost from "./components/CreatePost";
 
 class App extends Component {
   render() {
@@ -15,10 +16,11 @@ class App extends Component {
           <div>
             <Navbar />
 
-            <Route exact path="/" component={Jumbotron} />
+            <Route exact path="/" render={() => <Jumbotron />} />
             <Route path="/signup" render={() => <Signup />} />
             <Route path="/login" render={() => <Login />} />
             <Route path="/dashboard" render={() => <Dashboard />} />
+            <Route path="/create-post" render={() => <CreatePost />} />
           </div>
         </BrowserRouter>
       </main>

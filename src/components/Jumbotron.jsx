@@ -3,14 +3,8 @@ import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
 class Jumbotron extends React.Component {
-  state = { loggedIn: false };
-  componentWillMount() {
-    if (this.props.user) {
-      this.setState({ loggedIn: true });
-    }
-  }
   render() {
-    if (this.state.loggedIn) {
+    if (this.props.user.loggedIn) {
       return <Redirect to="/dashboard" />;
     }
 

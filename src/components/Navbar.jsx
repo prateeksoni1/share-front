@@ -7,8 +7,7 @@ import Axios from "axios";
 
 class Navbar extends Component {
   state = {
-    redirect: false,
-    loggedIn: false
+    redirect: false
   };
 
   componentDidMount() {
@@ -32,11 +31,11 @@ class Navbar extends Component {
   render() {
     console.log("state", this.state);
     console.log("props", this.props);
-    const home = this.state.loggedIn ? "/dashboard" : "/";
+    const home = this.props.user.loggedIn ? "/dashboard" : "/";
     return (
       <div>
         {this.state.redirect ? <Redirect to="/" /> : null}
-        {this.state.loggedIn ? (
+        {this.props.user.loggedIn ? (
           <nav
             className="navbar navbar-expand-lg"
             style={{ backgroundColor: "#e74c3c" }}
