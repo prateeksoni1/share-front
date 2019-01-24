@@ -7,6 +7,7 @@ import Login from "./components/Login";
 import Dashboard from "./components/Dashboard";
 import { connect } from "react-redux";
 import CreatePost from "./components/CreatePost";
+import MyPosts from "./components/MyPosts";
 
 class App extends Component {
   render() {
@@ -21,6 +22,7 @@ class App extends Component {
             <Route path="/login" render={() => <Login />} />
             <Route path="/dashboard" render={() => <Dashboard />} />
             <Route path="/create-post" render={() => <CreatePost />} />
+            <Route path="/my-posts" render={() => <MyPosts />} />
           </div>
         </BrowserRouter>
       </main>

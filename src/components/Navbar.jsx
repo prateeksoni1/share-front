@@ -54,7 +54,7 @@ class Navbar extends Component {
                 </a>
               </li>
               <li className="nav-item ">
-                <a className="nav-link text-white" href="#">
+                <a className="nav-link text-white" href="/my-posts">
                   My thoughts
                 </a>
               </li>

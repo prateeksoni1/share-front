@@ -1,9 +1,23 @@
 import React, { Component } from "react";
 import { Field, reduxForm } from "redux-form";
+import { connect } from "react-redux";
+import ReactLoading from "react-loading";
+import { Redirect } from "react-router-dom";
+import Axios from "axios";
 
 class CreatePost extends Component {
+  state = { loading: false, redirect: false };
+
   onSubmit = formValues => {
     console.log(formValues);
+    this.setState({ loading: true });
+    Axios.post("/api/posts", {
+      ...formValues,
+      userId: this.props.userId
+    }).then(res => {
+      console.log(res);
+      this.setState({ loading: false, redirect: true });
+    });
   };
 
   textInput = ({ input, label, meta }) => {
@@ -38,9 +52,17 @@ class CreatePost extends Component {
           />
           <button className="btn btn-primary red-btn">Submit</button>
         </form>
+        {this.state.loading ? <ReactLoading color="#e74c3c" /> : null}
+        {this.state.redirect ? <Redirect to="/dashboard" /> : null}
       </div>
     );
   }
 }
 
-export default reduxForm({ form: "CreatePost" })(CreatePost);
+const mapStateToProps = state => {
+  return { userId: state.user._id };
+};
+
+export default connect(mapStateToProps)(
+  reduxForm({ form: "CreatePost" })(CreatePost)
+);
